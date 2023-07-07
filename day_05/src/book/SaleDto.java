@@ -1,4 +1,4 @@
-package day_05;
+package book;
 
 public class SaleDto {
 	private int mno;
