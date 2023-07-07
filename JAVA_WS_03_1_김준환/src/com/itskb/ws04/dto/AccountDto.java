@@ -1,4 +1,4 @@
-package com.itskb.ws03.dto;
+package com.itskb.ws04.dto;
 
 public class AccountDto implements Comparable<AccountDto> {
 	private int accountSeq;
@@ -47,8 +47,8 @@ public class AccountDto implements Comparable<AccountDto> {
 	// tostring
 	@Override
 	public String toString() {
-		return "UserDto [accountSeq=" + accountSeq + ", accountNumber=" + accountNumber + ", balance=" + balance
-				+ ", userSeq=" + userSeq + "]";
+		return "[ accountSeq=" + accountSeq + ", accountNumber=" + accountNumber + ", balance=" + balance
+				+ ", userSeq=" + userSeq+"] ";
 	}
 
 	@Override

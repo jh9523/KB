@@ -1,4 +1,4 @@
-package com.itskb.ws03.dto;
+package com.itskb.ws04.dto;
 
 public class UserDto {
 	private int userSeq;
