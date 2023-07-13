@@ -18,14 +18,14 @@ public class Main3 {
 		st = new StringTokenizer(br.readLine());
 		long sum2 =0;
 		for(int i =0; i<n;i++) {
-			a[i] = Integer.parseInt(st.nextToken());
+			a[i] = (Integer.parseInt(st.nextToken())) %m;
 			sum2 += a[i];
 			b[i+1] = sum2;
 			if(a[i]%m == 0) cnt++;
 		}
 		long sum=0;
 		for(int i =0; i<n-1; i++) {
-			for(int j =1; j<n+1;j++) {
+			for(int j =1+i; j<n+1;j++) {
 				sum = b[j]-b[i];
 				if(sum%3 == 0) {
 					cnt++;
@@ -33,7 +33,7 @@ public class Main3 {
 			}
 		}
 				
-		System.out.println(cnt);
+		System.out.println(cnt-1);
 		
 		
 		
