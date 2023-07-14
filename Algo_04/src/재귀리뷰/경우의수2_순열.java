@@ -1,7 +1,7 @@
 package 재귀리뷰;
 
 // 중복배제
-public class 경우의수2 {
+public class 경우의수2_순열{
 	static int[] arr;	// 원소
 	static boolean[] visited;	// 사용여부
 	static int n;		// 답의 길이

@@ -1,6 +1,6 @@
 package 재귀리뷰;
 
-public class 경우의수 {
+public class 경우의수 {	// 중복허용
 	static int[] arr;	// 원소
 	static int n;		// 답의 길이
 	static int[] result;	// 답 저장 배열

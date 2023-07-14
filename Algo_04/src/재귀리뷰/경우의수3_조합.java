@@ -8,9 +8,9 @@ public class 경우의수3_조합 {
 	static int[] result;	// 답 저장 배열
 	public static void main(String[] args) {
 		// 원소 {1, 2, 3}에 대한 모든 숫자 조합
-		arr = new int[] {1, 2, 3};	// 반복할 숫자
+		arr = new int[] {1, 2, 3, 4};	// 반복할 숫자
 		visited = new boolean[arr.length];	// 원소길이만큼 
-		n = 2;	// 출력할 숫자 조합 길이
+		n = 3;	// 출력할 숫자 조합 길이
 		result = new int[n];	// 정답 저장할 배열
 		
 		recur(0, 0);	// 깊이 0, 시작위치 0 전달
