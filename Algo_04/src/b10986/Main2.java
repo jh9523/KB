@@ -28,7 +28,7 @@ public class Main2 {
 					cnt++;
 				}
 			}
-		}
+		}		
 				
 		System.out.println(cnt);
 		

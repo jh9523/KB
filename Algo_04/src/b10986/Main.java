@@ -18,15 +18,15 @@ public class Main {
 		st = new StringTokenizer(br.readLine());
 		for(int i =0; i<n;i++) {
 			b[i+1] = (b[i]+Long.parseLong(st.nextToken())) % m;	// 합을 나누어 나머지값으로 저장
-			if(b[i+1] == 0) {									// 
+			if(b[i+1] == 0) {									// 0으로 나누어 떨어지는 구간의 갯수는 cnt에 +
 				cnt++;										
 			}
-			idx[(int) b[i+1]]++;
-		}
+			idx[(int) b[i+1]]++;								// 나머지값에 따라 카운트해 배열에 저장
+		}	
 		
-		for(int i =0; i<m; i++) {
-			if(idx[i] > 1) {
-				cnt += (idx[i] * (idx[i]-1) / 2);
+		for(int i =0; i<m; i++) {					// 나머지 1인 수 - 나머지 1인 수는 0이기 때문에 같은 나머지를 가진 합 배열의 수를 구한다.
+			if(idx[i] > 1) {						// 0이 아닌 배열 ( 0은 이미 카운트함)
+				cnt += (idx[i] * (idx[i]-1) / 2);	// nC2 f
 			}
 		}
 		System.out.println(cnt);	// 답 출력
