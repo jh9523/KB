@@ -7,11 +7,11 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 
-public class Main {
+public class Test2 {
 	static int[] p;
 	static PriorityQueue<pe> q;
 	static int llong;
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws IOException, NullPointerException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		int n = Integer.parseInt(br.readLine());	// 컴퓨터 개수 입력
@@ -34,35 +34,30 @@ public class Main {
 					if(1<=cn && cn<=26) {
 						llong = llong + cn + 26;
 						if(i!=k) {
-						q.add(new pe(i, k, cn+26));
+							q.add(new pe(i, k, cn+26));
 						}
 					}else {
 						llong = llong + cn - 32;
 						if(i!=k) {
-						q.add(new pe(i, k, cn-32));
+							q.add(new pe(i, k, cn-32));
 						}
 					}
 				}
-				
 			}
 		}	// 입력 끝
-//		System.out.println(llong);
 		int usedEdge = 0;
 		int aaaa = llong;
 		int cnt =0;
-		while(usedEdge < n-1 /* || !q.isEmpty()*/) {
+		while(usedEdge < n-1) {
 			pe now = q.poll();
-			if(now == null) {
-				System.out.println(-1);
-				return;
-			}
+			
 			if(find(now.s) != find(now.e)) {
 				union(now.s, now.e);
 				llong -= now.v;
 				usedEdge++;
 			}
 			cnt++;
-			if(cnt>100) {
+			if(cnt>1000) {
 				System.out.println(-1);
 				return;
 			}
@@ -96,20 +91,4 @@ public class Main {
 		}
 	}
 	
-}
-
-
-class pe implements Comparable<pe>{
-	int s;
-	int e;
-	int v;
-	pe(int s, int e, int v){
-		this.s = s;
-		this.e = e;
-		this.v = v;
-	}
-	@Override
-	public int compareTo(pe o) {
-		return this.v - o.v;
-	}
 }
