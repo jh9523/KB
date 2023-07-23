@@ -1,5 +1,3 @@
-package homework3;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,10 +5,10 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 
-public class Main {
-	static int[] p;
-	static PriorityQueue<pe> q;
-	static int llong;
+public class HW2_b1414_김준환 {
+	static int[] p;						// 대표 노드 배열
+	static PriorityQueue<pe> q;			// 우선순위 큐
+	static int llong;					// 선의 길이 총합
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	// 문자 입력을 받기 위한 BufferedReader
 		StringTokenizer st;							// 한줄에 여러 문자 입력 받을때 필요한 StringTokenizer
