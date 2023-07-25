@@ -21,12 +21,14 @@ public class RentExam {
 		rs.add( car );
 		car = new Bus(7032, 30, "버스", 2009, 8000, 25);
 		rs.add( car );
+		
+		
 		Member mem = new IndividualMember(100, "개인", "010-3453-2424", "홍길동");
 		rs.add( mem );
 		mem = new CorporateMember(2000, "법인", "02-3433-3321", "(주)멀캠", 3232);
 		rs.add(mem);
 
-		
+		rs.rent(100, 7492,10, "2023-07-01",7,"2023-07-07",17 );
 	
 	}
 }

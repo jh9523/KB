@@ -20,6 +20,13 @@ public class RentService {
 	public void add(Member mem) {
 		mems.add(mem);
 	}
+
+	private int rentalSeq = 1;	// 대여 일련번호
+
+	public void rent(int i, int carnum, int price, String rentDate, int l, String string2, int m) {
+//		rents.add(new Rent(rentalSeq++, carnum, price,rentDate ));
+		
+	}
 	
 	
 	
