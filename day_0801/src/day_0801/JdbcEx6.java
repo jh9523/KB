@@ -40,7 +40,7 @@ public class JdbcEx6 {
 			String logout_date = rs.getString("logout_date");
 			String logout_time = rs.getString("logout_time");
 			String name = rs.getString("name");
-			logList.add(new LoginDTO(member_id, login_date, login_time, logout_date, logout_time, name));
+//			logList.add(new LoginDTO(member_id, login_date, login_time, logout_date, logout_time, name));
 		}
 		// 7. 자원반환
 		pstmt.close();

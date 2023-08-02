@@ -3,9 +3,10 @@ package day_0801.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import day_0801.dto.LoginDTO;
 import day_0801.dto.MemberDTO;
 
-public class MembersDaoImplExam {
+public class LoginDaoImplExam {
 	public static void main(String[] args) {
 //		count();
 //		add();
@@ -18,12 +19,26 @@ public class MembersDaoImplExam {
 		
 	}
 	
-	private static void list() {
-		MembersDaoImpl membersDao = new MembersDaoImpl();
+	private static void add() {
+		LoginDaoImpl loginsDao = new LoginDaoImpl();
 		try {
-			List<MemberDTO> list = membersDao.list();
+			loginsDao.add(new LoginDTO("user05", "2023-05-30", "12-30", "2023-05-30", "10-24"));
+			System.out.println("등록성공");
+		} catch (SQLException  e) {
+			System.out.println("SQL오류 발생");
+			e.printStackTrace();
+		} catch (DuplicatedIdException e) {
+			System.out.println("ID가 중복됩니다");
+		}
+		
+	}
+	
+	private static void list() {
+		LoginDaoImpl loginsDao = new LoginDaoImpl();
+		try {
+			List<LoginDTO> list = loginsDao.list();
 			System.out.println("** 전체 조회 **");
-			for(MemberDTO dto : list) {
+			for(LoginDTO dto : list) {
 				System.out.println(dto);
 			}
 		} catch (SQLException  e) {
@@ -32,9 +47,9 @@ public class MembersDaoImplExam {
 	}
 	
 	private static void count() {
-		MembersDaoImpl membersDao = new MembersDaoImpl();
+		LoginDaoImpl loginsDao = new LoginDaoImpl();
 		try {
-			int count = membersDao.count();
+			int count = loginsDao.count();
 			System.out.println("등록갯수: "+ count);
 		} catch (SQLException  e) {
 			System.out.println("SQL오류 발생");
@@ -42,23 +57,12 @@ public class MembersDaoImplExam {
 		
 	}
 	
-	private static void add() {
-		MembersDaoImpl membersDao = new MembersDaoImpl();
-		try {
-			membersDao.add(new MemberDTO("user07", "유저7", "777", "Y"));
-			System.out.println("등록성공");
-		} catch (SQLException  e) {
-			System.out.println("SQL오류 발생");
-		} catch (DuplicatedIdException e) {
-			System.out.println("ID가 중복됩니다");
-		}
-		
-	}
+	
 	
 	private static void update() {
-		MembersDaoImpl membersDao = new MembersDaoImpl();
+		LoginDaoImpl loginsDao = new LoginDaoImpl();
 		try {
-			membersDao.update(new MemberDTO("user07", "유저7", "777", "N"));
+			loginsDao.update(new LoginDTO("user05", "2023-05-29", "12-30", "2023-05-30", "10-20"));
 			System.out.println("수정성공");
 		} catch (SQLException  e) {
 			System.out.println("SQL오류 발생");
@@ -69,16 +73,15 @@ public class MembersDaoImplExam {
 	}
 	
 	private static void delete() {
-		MembersDaoImpl membersDao = new MembersDaoImpl();
+		LoginDaoImpl loginsDao = new LoginDaoImpl();
 		try {
-			membersDao.delete("user07");
+			loginsDao.delete("user05");
 			System.out.println("삭제성공");
 		} catch (SQLException  e) {
 			System.out.println("SQL오류 발생");
 		} catch (RecordNotFoundException e) {
 			System.out.println("데이터가 없습니다");
 		}
-		
-	}
 	
+	}
 }

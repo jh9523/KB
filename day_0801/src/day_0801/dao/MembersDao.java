@@ -1,7 +1,6 @@
 package day_0801.dao;
 
 import java.sql.SQLException;
-import java.util.DuplicateFormatFlagsException;
 import java.util.List;
 
 import day_0801.dto.MemberDTO;
