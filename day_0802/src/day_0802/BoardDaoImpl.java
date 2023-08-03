@@ -19,7 +19,7 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public void add(BoardDto dto) throws SQLException, DuplicatedIdException {
 		//DBMS연결
-		Connection con = null;
+		Connection con = null;    
 		PreparedStatement pstmt = null;
 		try {
 			con = JdbcUtil.connect();
