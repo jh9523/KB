@@ -1,6 +1,7 @@
 package cinema.theater.service;
 
 import java.sql.SQLException;
+import java.util.Scanner;
 
 import cinema.util.TheaterException;
 import cinema.dtos.TheaterDto;
@@ -10,7 +11,7 @@ import cinema.util.DuplicatedIdException;
 import cinema.util.RecordNotFoundException;
 
 public class TheaterServiceImpl implements TheaterService {
-	
+	static Scanner sc = new Scanner(System.in);
 	private TheaterDao theaterDao = new TheaterDaoImpl();
 
 	@Override
@@ -25,8 +26,17 @@ public class TheaterServiceImpl implements TheaterService {
 	}
 
 	@Override
-	public boolean update(TheaterDto dto) throws TheaterException, RecordNotFoundException {
-		return false;
+	public boolean check(TheaterDto dto) throws TheaterException, RecordNotFoundException {
+		try {
+			System.out.println("조회하고 싶은 관");
+			int no = sc.nextInt();
+			theaterDao.check(no);
+		} catch (SQLException e) {
+			return false;
+		}
+		
+		return true;
 	}
+
 
 }

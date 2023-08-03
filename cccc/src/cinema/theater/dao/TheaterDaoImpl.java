@@ -2,7 +2,9 @@ package cinema.theater.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 import cinema.dtos.TheaterDto;
 import cinema.util.DuplicatedIdException;
@@ -33,5 +35,37 @@ public class TheaterDaoImpl implements TheaterDao {
 					JdbcUtil.close(pstmt, con);
 				}
 			}
+
+	@Override
+	public TheaterDto check(int no) throws SQLException {
+		TheaterDto dto = null;
+		//DBMS연결
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = JdbcUtil.connect();
+			// 3. SQL 작성
+			String sql = "SELECT * FROM THEATER where thnum = ? ";
+			// 4. Statement 생성
+			pstmt = con.prepareStatement(sql);
+			// 5. 데이터 설정
+			pstmt.setInt(1, no);
+			// 6. SQL 전송, 결과수신
+			//   DML전송: executeUpdate() : int 
+			//   SELECT전송: executeQuery() : ResultSet
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {//조회결과가 있다
+				int thnum = rs.getInt("2");
+				int totseat = rs.getInt("1");
+				dto = new TheaterDto(thnum, totseat);
+				
+			}
+		} catch (ClassNotFoundException e) {
+			throw new SQLException(e);
+		} finally {
+			JdbcUtil.close(pstmt, con);
+		}
+		return dto;
+	}
 
 }

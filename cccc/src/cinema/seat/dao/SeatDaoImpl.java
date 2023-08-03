@@ -5,13 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 import cinema.dtos.SeatDto;
 import cinema.util.DuplicatedIdException;
 import cinema.util.JdbcUtil;
+
 
 
 public class SeatDaoImpl implements SeatDao {
@@ -59,18 +59,17 @@ public class SeatDaoImpl implements SeatDao {
 			// 5. 데이터 설정
 			pstmt.setInt(1, thhnum);
 			// 6. SQL 전송, 결과수신
-			//   DML전송: executeUpdate() : int 
-			//   SELECT전송: executeQuery() : ResultSet
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {//조회결과가 있다
-				int no = rs.getInt("no");
-				String title = rs.getString("title");
 				int seatnum = rs.getInt("seatnum");
-				int seatstatus = 0;
-				SeatDto dto = new SeatDto(seatnum, thhnum, seatstatus);
+				int thnum = rs.getInt("thnum");
+				int seatstatus = rs.getInt("seatstatus");
+				SeatDto dto = new SeatDto(seatnum, thnum, seatstatus);
 				result.add(dto);
 			}
 		} catch (ClassNotFoundException e) {
+			System.out.println("문제");
+			e.printStackTrace();
 			throw new SQLException(e);
 		} finally {
 			JdbcUtil.close(pstmt, con);

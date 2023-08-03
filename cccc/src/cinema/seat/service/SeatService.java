@@ -5,7 +5,6 @@ import cinema.util.TheaterException;
 import java.util.List;
 
 import cinema.dtos.SeatDto;
-import cinema.util.RecordNotFoundException;
 
 public interface SeatService {
 	// 등록
