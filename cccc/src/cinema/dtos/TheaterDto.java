@@ -1,4 +1,4 @@
-package cccc.vo;
+package cinema.dtos;
 
 public class TheaterDto {
 	private int thnum;

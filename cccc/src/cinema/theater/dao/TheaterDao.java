@@ -1,8 +1,8 @@
-package cccc.dao;
+package cinema.theater.dao;
 
 import java.sql.SQLException;
 
-import cccc.vo.TheaterDto;
+import cinema.dtos.TheaterDto;
 import cinema.util.DuplicatedIdException;
 
 public interface TheaterDao {

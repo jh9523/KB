@@ -1,8 +1,12 @@
-package cccc.vo;
+package cinema.seat.service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import cinema.util.TheaterException;
+import cinema.dtos.SeatDto;
+import cinema.seat.dao.SeatDao;
+import cinema.seat.dao.SeatDaoImpl;
 import cinema.util.DuplicatedIdException;
 import cinema.util.RecordNotFoundException;
 
@@ -21,10 +25,17 @@ public class SeatServiceImpl implements SeatService {
 		return true;
 	}
 
+
 	@Override
-	public boolean update(SeatDto dto) throws TheaterException, RecordNotFoundException {
-		// TODO Auto-generated method stub
-		return false;
+	public List<SeatDto> check() throws TheaterException {
+		List<SeatDto> list = null;
+		try {
+			list = seatDao.list();
+		} catch(SQLException e) {
+			e.printStackTrace();
+			throw new TheaterException(e.getMessage());
+		}
+		return list;
 	}
 
 }

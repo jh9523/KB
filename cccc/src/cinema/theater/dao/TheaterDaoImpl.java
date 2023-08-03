@@ -1,11 +1,10 @@
-package cccc;
+package cinema.theater.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import cccc.dao.TheaterDao;
-import cccc.vo.TheaterDto;
+import cinema.dtos.TheaterDto;
 import cinema.util.DuplicatedIdException;
 import cinema.util.JdbcUtil;
 

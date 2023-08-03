@@ -1,6 +1,7 @@
-package cccc.vo;
+package cinema.theater.service;
 
 
+import cinema.dtos.TheaterDto;
 import cinema.util.RecordNotFoundException;
 import cinema.util.TheaterException;
 

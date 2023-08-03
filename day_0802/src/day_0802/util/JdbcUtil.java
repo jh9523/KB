@@ -10,8 +10,8 @@ public class JdbcUtil {
 		// 1. Jdbc Driver 로딩
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				String url = "jdbc:oracle:thin:@127.0.0.1:1521/XE";
-				String user = "hr";
-				String password = "HR";
+				String user = "kbkb";
+				String password = "1234";
 				// 2. DBMS 연결
 				return DriverManager.getConnection(url, user, password);
 				

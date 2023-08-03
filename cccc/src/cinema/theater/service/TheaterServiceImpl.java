@@ -1,11 +1,11 @@
-package cccc;
+package cinema.theater.service;
 
 import java.sql.SQLException;
 
-import cccc.dao.TheaterDao;
-import cccc.vo.TheaterDto;
-import cccc.vo.TheaterService;
 import cinema.util.TheaterException;
+import cinema.dtos.TheaterDto;
+import cinema.theater.dao.TheaterDao;
+import cinema.theater.dao.TheaterDaoImpl;
 import cinema.util.DuplicatedIdException;
 import cinema.util.RecordNotFoundException;
 
