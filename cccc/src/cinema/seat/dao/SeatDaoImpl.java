@@ -31,7 +31,7 @@ public class SeatDaoImpl implements SeatDao {
 			// 4. Statement 생성
 			pstmt = con.prepareStatement(sql);
 			// 5. 데이터 설정
-			pstmt.setInt(1, dto.getTnumber());
+			pstmt.setInt(1, dto.getThnum());
 			pstmt.setInt(2, dto.getSeatstatus());
 			// 6. SQL 전송, 결과수신
 			int count = pstmt.executeUpdate();

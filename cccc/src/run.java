@@ -1,27 +1,35 @@
-import java.sql.SQLException;
+import java.util.List;
 
-import cinema.seat.dao.SeatDaoImpl;
+import cinema.dtos.SeatDto;
 import cinema.seat.service.SeatService;
 import cinema.seat.service.SeatServiceImpl;
 import cinema.util.TheaterException;
 
-public class main {
-	
+public class run {
 	private SeatService seatSvc;
 	
 	
 	public static void main(String[] args) {
-		new main().go();
+		new run().go();
 	}
 	
 	
 	private void go() {
 		init();
+		List<SeatDto> list = null;
 		try {
-			seatSvc.check();
+			list = seatSvc.check();
+			System.out.println("예약 가능 좌석은");
+			for(SeatDto dto : list) {
+				System.out.println(
+						dto.getSeatnum()+"    "+
+						dto.getThnum()
+						);
+			}
 		} catch (TheaterException e) {
 			e.printStackTrace();
 		}
+		
 		
 		
 	}

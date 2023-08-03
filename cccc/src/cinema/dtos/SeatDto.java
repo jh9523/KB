@@ -23,12 +23,12 @@ public class SeatDto {
 		this.seatnum = seatnum;
 	}
 
-	public int getTnumber() {
+	public int getThnum() {
 		return thnum;
 	}
 
-	public void setTnumber(int tnumber) {
-		this.thnum = tnumber;
+	public void setThnum(int thnum) {
+		this.thnum = thnum;
 	}
 
 	public int getSeatstatus() {
@@ -41,7 +41,7 @@ public class SeatDto {
 
 	@Override
 	public String toString() {
-		return "seatnum=" + seatnum + ", tnumber=" + thnum + ", seatstatus=" + seatstatus;
+		return "seatnum=" + seatnum + ", thnum=" + thnum + ", seatstatus=" + seatstatus;
 	}
 
 	
