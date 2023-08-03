@@ -13,6 +13,17 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDao boardDao = new BoardDaoImpl();
 	
 	@Override
+	public boolean add(BoardDto dto) throws BoardException {
+		try {
+			boardDao.add(dto);
+		} catch (SQLException e) {
+			throw new BoardException(e.getMessage());
+		} catch (DuplicatedIdException e) {
+		}
+		return true;
+	}
+	
+	@Override
 	public List<BoardDto> list() throws BoardException {
 		List<BoardDto> list = null;
 		try {
@@ -72,15 +83,6 @@ public class BoardServiceImpl implements BoardService {
 		return count;
 	}
 
-	@Override
-	public boolean add(BoardDto dto) throws BoardException {
-		try {
-			boardDao.add(dto);
-		} catch (SQLException e) {
-			throw new BoardException(e.getMessage());
-		} catch (DuplicatedIdException e) {
-		}
-		return true;
-	}
+	
 
 }
