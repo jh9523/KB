@@ -5,12 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.Scanner;
 
 import cinema.dtos.TheaterDto;
 import cinema.util.DuplicatedIdException;
 import cinema.util.JdbcUtil;
 
 public class TheaterDaoImpl implements TheaterDao {
+	
+	private Scanner sc = new Scanner(System.in);
 
 	@Override
 	public void add(TheaterDto dto) throws SQLException, DuplicatedIdException {
@@ -55,13 +58,13 @@ public class TheaterDaoImpl implements TheaterDao {
 			//   SELECT전송: executeQuery() : ResultSet
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {//조회결과가 있다
-				int thnum = rs.getInt("2");
-				int totseat = rs.getInt("1");
+				int thnum = rs.getInt("thnum");
+				int totseat = rs.getInt("totseat");
 				dto = new TheaterDto(thnum, totseat);
 				
 			}
 		} catch (ClassNotFoundException e) {
-			throw new SQLException(e);
+			dto = null;
 		} finally {
 			JdbcUtil.close(pstmt, con);
 		}

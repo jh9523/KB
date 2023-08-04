@@ -11,7 +11,6 @@ import cinema.util.DuplicatedIdException;
 import cinema.util.RecordNotFoundException;
 
 public class TheaterServiceImpl implements TheaterService {
-	static Scanner sc = new Scanner(System.in);
 	private TheaterDao theaterDao = new TheaterDaoImpl();
 
 	@Override
@@ -26,17 +25,18 @@ public class TheaterServiceImpl implements TheaterService {
 	}
 
 	@Override
-	public boolean check(TheaterDto dto) throws TheaterException, RecordNotFoundException {
+	public boolean check(int no) throws TheaterException, RecordNotFoundException {
 		try {
 			System.out.println("조회하고 싶은 관");
-			int no = sc.nextInt();
-			theaterDao.check(no);
+			TheaterDto check = theaterDao.check(no);
+			if(check != null) {
+				return true;
+			} else {
+				return false;
+			}
 		} catch (SQLException e) {
 			return false;
 		}
-		
-		return true;
 	}
-
 
 }
