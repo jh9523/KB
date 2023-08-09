@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Array1.html</title>
+<script>
+	var arr = [1, 2, 3, 4, 5]
+	var ret = arr.splice(2)	// 2번부터 삭제 + 배열 저장
+//	alert("Return:"+ret+",arr ="+arr)
+	
+	var arr = [1, 2, 3, 4, 5]
+	var ret = arr.splice(2,3)	// 2~3만 쓱
+//	alert("Return:"+ret+",arr ="+arr)
+
+	var arr = [1, 2, 3, 4, 5]
+	var ret = arr.splice(2,1,"js")	// 삭제된 자리에 js 추가
+	alert("Return:"+ret+",arr ="+arr)
+</script>
+</head>
+<body>
+
+</body>
+</html>

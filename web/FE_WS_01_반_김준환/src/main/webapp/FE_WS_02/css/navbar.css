@@ -1,0 +1,28 @@
+a{
+	text-decoration: none;
+}
+
+ul{
+	text-align: center;
+}
+.nav-item{
+	display: inline-block;
+	margin:10px;
+	list-style: none;
+}
+
+#con{
+	display: flex;
+	height: 200px;
+	background-color: mediumpurple;
+	
+}
+
+#banner{
+	margin:auto;
+	width: 500px;
+	height: 50px;
+	color: white;
+	font-size: xx-large;
+	
+}
