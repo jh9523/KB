@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+	let interval_id = null;
+	function click_start(){
+		interval_id = setInterval("change()", 500)
+		
+	}
+	function click_stop(){
+		clearInterval(interval_id)
+		interval_id = null
+	}
+	var count =0 
+	var cnt = 0
+	function increase(){
+		count++
+		$("button").html(count)
+	}
+	var colors = ['red', 'green', 'blue']
+
+	function change(){
+		$(".btn").css("background-color",colors[(cnt++)%colors.length])
+	}
+	
+	$(function(){
+		$("#start").click(click_start)
+		$("#stop").click(click_stop)
+//		$("button").css("color","red")
+//		setTimeout("alert('OK')", 2000)	// 큰따움표 안에는 작은따움표로 표시
+//		setInterval("increase()", 100)
+	})
+	
+</script>
+</head>
+<body>
+	
+	<button id="start">START</button>
+	<button id="stop">STOP</button>
+	<br>
+	<button class="btn">OK 1</button>
+	<button class="btn">OK 2</button>
+	<button class="btn">OK 3</button>
+	
+</body>
+</html>

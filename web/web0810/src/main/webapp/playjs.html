@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="playjs.css">
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+        <script src="playjs.js"></script>
+    </head>
+    <body>
+        <header>
+            <div id="title">
+                Play with JS!
+            </div>
+            <div id="ctime">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="main-menu">Basic JS</a></li>
+                    <li><a href="#" class="main-menu">Hangman</a></li>
+                    <li><a href="#" class="main-menu">jQuery</a></li>
+                    <li><a href="#" class="main-menu">Advanced JS</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="content">
+            
+        </div>
+        <div id="hangman">
+            <div>
+                <img id="hangmanpic" src="hangman6.gif" alt="hangman"/>
+            </div>
+            <div id="clue">Prsee New Game to Play!</div>
+            <div>
+                <input id="hguess" type="text" size="1" maxlength="1" />
+                <button id="guessbutton" onclick="guessLetter();" disabled="disabled">Guess</button>
+            </div>
+            <div id="newgamearea">
+                <button onclick="newGame();">New Game</button>
+            </div>
+            <div id="hguessstr"></div>
+        </div>
+        <footer>
+            <p>Web Programming, Spring 2022</p>
+            <p>Created by Donghyun Jo</p>
+        </footer>
+    </body>
+</html>

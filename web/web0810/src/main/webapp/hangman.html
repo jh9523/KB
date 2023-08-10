@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>HANGMAN</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	<script>
+		var hangword = ["elephant", "turtle", "leopard", "monkey", "racoon", "pigeon", "beaver"]
+		var chance = 7;
+		// 알파벳 배열 생성
+		var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+		// 알파벳 버튼 생성 및 버튼 컨테이너에 추가
+		var buttonsCont = document.getElementById('alpha');
+		
+		// 알파벳 버튼 생성 및 버튼 컨테이너에 추가
+		function init_but(){
+			alphabet.forEach(function(letter){
+				var button = document.createElement('button');
+				button.textContent = letter;
+				button.addEventListener('click', function(){
+					alert('클릭한 버튼: '+letter);
+				});
+				buttonsCont.appendChild(button);
+			})
+			
+		}
+		
+		
+		$(function(){
+			init_but();
+		})
+		
+		
+		function init_word(){
+			let word = hangword[floor(Math.random()*hangword.length)];	// 랜덤 단어 선택
+			let num = word.length
+		}
+		
+		function init_button(){	// 버튼 생성
+			let alpha = $("#alpha")
+			// 필드 내 모든 태그를 삭제
+			
+			for(let n =A; n<=Z; n++){
+				html += "<button alp='"+n+"'"
+				html += " <button>"
+			}
+			
+		}
+		
+		
+		
+	</script>
+	<style>
+		p{
+			text-align: center;
+			
+			color: royalblue;
+		}
+		button{
+			font-size: x-large;
+			border: none
+		}
+	</style>
+</head>
+
+<body>
+	<p>
+		<span id=A>
+			<button>
+				<font color=0000FF>A</font>
+			</button>
+		</span>
+		<span id=B>
+			<button>
+				<font color=0000FF>B</font>
+			</button>
+		</span>
+		<span id=C>
+			<button>
+				<font color=0000FF>C</font>
+			</button>
+		</span>
+		<span id=D>
+			<button>
+				<font color=0000FF>D</font>
+			</button>
+		</span>
+		<span id=E>
+			<button>
+				<font color=0000FF>E</font>
+			</button>
+		</span>
+		<span id=F>
+			<button>
+				<font color=0000FF>F</font>
+			</button>
+		</span>
+		<span id=G>
+			<button>
+				<font color=0000FF>G</font>
+			</button>
+		</span>
+		<span id=H>
+			<button>
+				<font color=0000FF>H</font>
+			</button>
+		</span>
+		<span id=I>
+			<button>
+				<font color=0000FF>I</font>
+			</button>
+		</span>
+		<span id=J>
+			<button>
+				<font color=0000FF>J</font>
+			</button>
+		</span>
+		<span id=K>
+			<button>
+				<font color=0000FF>K</font>
+			</button>
+		</span>
+		<span id=L>
+			<button>
+				<font color=0000FF>L</font>
+			</button>
+		</span>
+		<span id=M>
+			<button>
+				<font color=0000FF>M</font>
+			</button>
+		</span>
+		<span id=N>
+			<button>
+				<font color=0000FF>N</font>
+			</button>
+		</span>
+		<span id=O>
+			<button>
+				<font color=0000FF>O</font>
+			</button>
+		</span>
+		<span id=P>
+			<button>
+				<font color=0000FF>P</font>
+			</button>
+		</span>
+		<span id=Q>
+			<button>
+				<font color=0000FF>Q</font>
+			</button>
+		</span>
+		<span id=R>
+			<button>
+				<font color=0000FF>R</font>
+			</button>
+		</span>
+		<span id=S>
+			<button>
+				<font color=0000FF>S</font>
+			</button>
+		</span>
+		<span id=T>
+			<button>
+				<font color=0000FF>T</font>
+			</button>
+		</span>
+		<span id=U>
+			<button>
+				<font color=0000FF>U</font>
+			</button>
+		</span>
+		<span id=V>
+			<button>
+				<font color=0000FF>V</font>
+			</button>
+		</span>
+		<span id=W>
+			<button>
+				<font color=0000FF>W</font>
+			</button>
+		</span>
+		<span id=X>
+			<button>
+				<font color=0000FF>X</font>
+			</button>
+		</span>
+		<span id=Y>
+			<button>
+				<font color=0000FF>Y</font>
+			</button>
+		</span>
+		<span id=Z>
+			<button>
+				<font color=0000FF>Z</font>
+			</button>
+		</span>
+	</p>
+	
+	<span>
+		<div id = "alpha"></div>
+	</span>
+
+</body>
+
+</html>
