@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+function click_daum(){
+	let options = {
+			url:"proxy_html2.jsp",
+			data: {"url":"https://news.daum.net/"}, 
+			dataType: "html",
+			success:function(data){
+				$("#result").empty()	// 내용 모두 삭제
+				$(data).find(".item_issue  a.link_txt").each(function(){	// a.sh_text_headline
+					$("#result").append(this.innerHTML+"<br>")		// this가 value 역할을 함
+				})
+			}
+		}
+		$.ajax(options)
+}
+
+function click_naver(){
+	let options = {
+			url:"proxy_html2.jsp",
+			data: {"url":"https://news.naver.com/main/main.naver?mode=LSD&mid=shm&sid1=105"}, 
+			dataType: "html",
+			success:function(data){
+				$("#result").empty()	// 내용 모두 삭제
+				$(data).find("ul.list_txt>li>a").each(function(){	// a.sh_text_headline
+					$("#result").append(this.innerHTML+"<br>")		// this가 value 역할을 함
+				})
+				
+			}
+		}
+		$.ajax(options)
+}
+
+function click_dallor(){
+	let options = {
+			url:"proxy_html2.jsp",
+			data: {"url":"https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%ED%99%98%EC%9C%A8&oquery=%EB%8B%AC%EB%9F%AC+%ED%99%98%EC%9C%A8&tqi=iLTHNwprvN8ssE4n6R8ssssstbs-416309"}, 
+			dataType: "html",
+			success:function(data){
+				$("#result").empty()	// 내용 모두 삭제
+				$(data).find("span.spt_con.up > strong").each(function(){	// a.sh_text_headline
+					$("#result").append("환율은 "+this.innerHTML+"입니다."+"<br>")		// this가 value 역할을 함
+				})
+				
+			}
+		}
+		$.ajax(options)
+}
+
+function click_weather(){
+	let options = {
+			url:"proxy_xml.jsp",
+			data: {"url":"https://www.weather.go.kr/w/rss/dfs/hr1-forecast.do?zone=1168065600"}, 
+			dataType: "xml",
+			success:function(data){
+				$("#result").empty()	// 내용 모두 삭제
+				// 예보 동네 이름
+				let category = $(data).find("category").text()
+				$("#result").append("동네이름: "+category)		// this가 value 역할을 함
+				// 시간별 날씨 데이터
+				let datas = $(data).find("data")
+				datas.each(function(){	// 찾은 data태그 하나당 1번씩 함수 실행
+					let days=["오늘", "내일", "모레", "글피"]
+					// this는 찾은 datae태그의 자바스크립트 객체
+					let day = $(this).find("day").text()	// 날짜
+					day = days[day]
+					let hour = $(this).find("hour").text()	// 시간
+					let temp = $(this).find("temp").text()	// 온도
+					let sky = $(this).find("sky").text()	
+					let pty = $(this).find("pty").text()	
+					let pcp = $(this).find("pcp").text()	
+					let wfKor = $(this).find("wfKor").text()	
+					
+					
+					$("#result").append("<br>"+day+" "+ hour +"시"+temp+"℃"+wfKor)
+					//if(pcp != 0.0){
+						//$("#result").append(" 강수량"+pcp+"mm")
+					//}
+					if(wfKor=="비" || wfKor=="비/눈" || wfKor=="소나기" || wfKor=="빗방울" || wfKor=="빗방울/눈날림"){
+						$("#result").append(" 강수량"+pcp+"mm")
+					}
+					let imgurl = "https://www.weather.go.kr/w/resources/icon/DY@64/A/Light/DB0"
+					imgurl += (sky*1+pty*1) +".png"
+					$("#result").append("<img src='"+imgurl+"'>");
+				
+				})
+			}
+		}
+		$.ajax(options)
+}
+
+
+	$(function(){
+		$("#daum").click(click_daum)
+		$("#get_data").click(click_naver)
+		$("#dal").click(click_dallor)
+		$("#weather").click(click_weather)
+	})
+</script>
+</head>
+<body>
+	<button id="get_data">가져오기</button>
+	<button id="daum">다음 메인 기사제목</button>
+	<button id="dal">달러 시세</button>
+	<button id="weather">날씨의 아이</button>
+	<div id="result"></div>
+</body>
+</html>
