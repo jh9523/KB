@@ -1,10 +1,9 @@
-<%@page import="web0817mvc.dto.BoardDto"%>
+<%@page import="member.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	BoardDto dto = (BoardDto)request.getAttribute("dto");
+	MemberDto dto = (MemberDto)request.getAttribute("dto");
 %>
-    
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,28 +11,25 @@
 <title>디테일</title>
 </head>
 <body>
-		<h1>게시물 디테일</h1>
+	<h1>멤버 디테일</h1>
 		<table>
 			<tr>
-				<th>번호</th><td>${dto.no }</td>
+				<th>아 디</th><td>${dto.id }</td>
 			</tr>
 			<tr>
-				<th>제목</th><td>${dto.title }</td>
+				<th>이 름</th><td>${dto.name }</td>
 			</tr>
 			<tr>
-				<th>작성자</th><td>${dto.writer}</td>
+				<th>비 번</th><td>${dto.pwd}</td>
 			</tr>
 			<tr>
-				<th>작성일</th><td>${dto.regdate}</td>
+				<th>상 태</th><td>${dto.status}</td>
 			</tr>
 		</table>
 		<a href="list">목록</a>
-		<a href="update_form?no=${dto.no}">수정</a>
+		<a href="update_form?id=${dto.id}">수정</a>
 		<!-- 수정폼은 검색한 dto 각 변수를 등록폼에 출력 -->
 		<!-- 수정폼은 상세보기 + 등록폼 -->
-		<a href="delete_form?no=${dto.no}">삭제</a>
-		
-		
-		
+		<a href="delete_form?id=${dto.id}">삭제</a>
 </body>
 </html>
