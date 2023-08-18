@@ -1,4 +1,4 @@
-package web0817mvc.dao;
+package board.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,11 +8,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import web0817mvc.dto.BoardDto;
-import web0817mvc.exception.DuplicatedIdException;
-import web0817mvc.exception.RecordNotFoundException;
-import web0817mvc.util.JdbcUtil;
-import web0817mvc.util.JdbcUtil_orig;
+import board.dto.BoardDto;
+import board.exception.DuplicatedIdException;
+import board.exception.RecordNotFoundException;
+import board.util.JdbcUtil;
 
 
 public class BoardDaoImpl implements BoardDao {
@@ -23,7 +22,7 @@ public class BoardDaoImpl implements BoardDao {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
-			con = JdbcUtil_orig.connect();
+			con = JdbcUtil.connect();
 			// 3. SQL 작성
 			String sql = "INSERT INTO BOARD(NO, WRITER, TITLE, CONTENT, REGDATE) ";
 			sql += "VALUES( BOARD_SEQ.NEXTVAL , ? , ? , ?, SYSDATE )";
@@ -35,10 +34,10 @@ public class BoardDaoImpl implements BoardDao {
 			pstmt.setString(3, dto.getContent());
 			// 6. SQL 전송, 결과수신
 			int count = pstmt.executeUpdate();
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			throw new SQLException(e);
 		} finally {
-			JdbcUtil_orig.close(pstmt, con);
+			JdbcUtil.close(pstmt, con);
 		}
 	}
 
@@ -52,7 +51,7 @@ public class BoardDaoImpl implements BoardDao {
 			if( findById(dto.getNo()) == null )
 				throw new RecordNotFoundException(dto.getNo()+"는 없습니다");
 
-			con = JdbcUtil_orig.connect();
+			con = JdbcUtil.connect();
 			// 3. SQL 작성
 			String sql = "UPDATE BOARD set title=?, writer=?, content = ? ";
 			sql += "WHERE no = ?";
@@ -65,7 +64,7 @@ public class BoardDaoImpl implements BoardDao {
 			pstmt.setInt(4, dto.getNo());
 			// 6. SQL 전송, 결과수신
 			int count = pstmt.executeUpdate();
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			throw new SQLException(e);
 		} finally {
 			JdbcUtil.close(pstmt, con);
@@ -81,7 +80,7 @@ public class BoardDaoImpl implements BoardDao {
 			if( findById(no) == null )
 				throw new RecordNotFoundException(no+"는 없습니다");
 
-			con = JdbcUtil_orig.connect();
+			con = JdbcUtil.connect();
 			// 3. SQL 작성
 			String sql = "DELETE BOARD ";
 			sql += "WHERE no = ?";
@@ -91,10 +90,10 @@ public class BoardDaoImpl implements BoardDao {
 			pstmt.setInt(1, no);
 			// 6. SQL 전송, 결과수신
 			int count = pstmt.executeUpdate();
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			throw new SQLException(e);
 		} finally {
-			JdbcUtil_orig.close(pstmt, con);
+			JdbcUtil.close(pstmt, con);
 		}	
 	}
 
@@ -105,7 +104,7 @@ public class BoardDaoImpl implements BoardDao {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
-			con = JdbcUtil_orig.connect();
+			con = JdbcUtil.connect();
 			// 3. SQL 작성
 			String sql = "SELECT count(*) FROM board ";
 			// 4. Statement 생성
@@ -117,7 +116,7 @@ public class BoardDaoImpl implements BoardDao {
 			ResultSet rs = pstmt.executeQuery();
 			rs.next();
 			count = rs.getInt(1);
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			throw new SQLException(e);
 		} finally {
 			JdbcUtil.close(pstmt, con);
@@ -132,7 +131,7 @@ public class BoardDaoImpl implements BoardDao {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
-			con = JdbcUtil_orig.connect();
+			con = JdbcUtil.connect();
 			// 3. SQL 작성
 			String sql = "SELECT * FROM BOARD order by no DESC";
 			// 4. Statement 생성
@@ -151,10 +150,10 @@ public class BoardDaoImpl implements BoardDao {
 				BoardDto dto = new BoardDto(no, title, writer, content, regdate);
 				result.add(dto);
 			}
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			throw new SQLException(e);
 		} finally {
-			JdbcUtil_orig.close(pstmt, con);
+			JdbcUtil.close(pstmt, con);
 		}
 		return result;
 
@@ -167,7 +166,7 @@ public class BoardDaoImpl implements BoardDao {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
-			con = JdbcUtil_orig.connect();
+			con = JdbcUtil.connect();
 			// 3. SQL 작성
 			String sql = "SELECT * FROM board where no = ?";
 			// 4. Statement 생성
@@ -185,10 +184,10 @@ public class BoardDaoImpl implements BoardDao {
 				String content = rs.getString("content");
 				dto = new BoardDto(no, title, writer, content, regdate);
 			}
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			throw new SQLException(e);
 		} finally {
-			JdbcUtil_orig.close(pstmt, con);
+			JdbcUtil.close(pstmt, con);
 		}
 		System.out.println(dto);
 		return dto;

@@ -1,4 +1,4 @@
-package web0817mvc.util;
+package board.util;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
