@@ -1,0 +1,13 @@
+package spring02aop;
+
+public class ClacImpl implements Calc{
+
+	@Override
+	public long factorial(long num) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
+	
+}

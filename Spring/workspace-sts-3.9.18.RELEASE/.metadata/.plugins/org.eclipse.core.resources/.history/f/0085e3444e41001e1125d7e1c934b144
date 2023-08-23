@@ -1,0 +1,9 @@
+package spring02.dao;
+
+public class BookDao {
+	BookDao dao;
+	
+	public void add(BookDto dto) {
+		
+	}
+}

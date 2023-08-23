@@ -1,0 +1,11 @@
+package spring02.dao;
+
+import spring02.dto.BookDto;
+
+public class BookDao {
+	BookDao dao;
+	
+	public void add(BookDto dto) {
+		dao.insert(dto)
+	}
+}

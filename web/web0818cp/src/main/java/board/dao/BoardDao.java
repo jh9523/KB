@@ -19,7 +19,7 @@ public interface BoardDao {
 	//갯수
 	public int count() throws SQLException;
 	//목록
-	public List<BoardDto> list() throws SQLException;
+	public List<BoardDto> list() throws SQLException  ;
 	//id검색
 	public BoardDto findById(int no) throws SQLException;
 }

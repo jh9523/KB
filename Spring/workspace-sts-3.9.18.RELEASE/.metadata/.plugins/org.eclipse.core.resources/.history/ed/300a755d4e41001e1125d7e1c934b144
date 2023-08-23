@@ -1,0 +1,5 @@
+package spring02;
+
+public class BookService {
+	BookDao dao;
+}

@@ -123,7 +123,7 @@ public class BoardServlet extends HttpServlet {
 		dto.setTitle(request.getParameter("title"));
 		dto.setWriter(request.getParameter("writer"));
 		dto.setContent(request.getParameter("content"));
-
+		
 		BoardDao dao = new BoardDaoImpl();
 		dao.add( dto );
 		request.setAttribute("msg", "게시물 등록 성공");

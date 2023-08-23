@@ -1,0 +1,27 @@
+package spring02;
+
+import spring02.dao.BookDao;
+import spring02.dto.BookDto;
+
+public class BookService {
+	BookDao dao;
+	
+	public BookService() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	BookService(BookDao dao){		// 积己磊 林涝
+		this.dao = dao;
+	}
+	
+	public void setDao(BookDao dao) {	// setter 林涝
+		this.dao = dao;
+	}
+	
+	public void add(BookDto dto) {	
+		dao.insert(dto);
+	}
+	
+
+}

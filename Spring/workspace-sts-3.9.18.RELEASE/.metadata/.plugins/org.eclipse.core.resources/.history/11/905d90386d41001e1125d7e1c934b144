@@ -1,0 +1,7 @@
+package spring02aop;
+
+public class ClacImpl implements Calc{
+
+	
+	
+}

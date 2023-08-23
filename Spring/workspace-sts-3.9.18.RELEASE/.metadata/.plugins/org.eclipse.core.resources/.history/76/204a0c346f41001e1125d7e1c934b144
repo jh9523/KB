@@ -1,0 +1,8 @@
+package spring02aop;
+
+import org.aspectj.lang.annotation.Aspect;
+
+@Aspect
+public class MyAspect {
+	
+}
